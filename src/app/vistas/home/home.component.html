@@ -1,0 +1,158 @@
+<header>
+    <div class="d-flex justify-content-between">
+        <div>
+            <a routerLink="/home">
+                <img src="https://angular.io/assets/images/logos/angular/angular.png" alt="Angular logo" width="200">
+            </a>
+        </div>
+        <div class="icons">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-search color" viewBox="0 0 15 15">
+                <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                class="bi bi-person color" viewBox="0 0 15 15">
+                <path
+                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-bag color" viewBox="0 0 15 15">
+                <path
+                    d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+            </svg>
+        </div>
+    </div>
+    <nav>
+        <ul class="nav nav-underline">
+            <li class="nav-item">
+                <a routerLink="/ropa" class="nav-link">ROPA</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/gorras" class="nav-link">GORRAS</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/accesorios" class="nav-link">ACCESORIOS</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- Sección de descuento -->
+    <div class="row text-center p-3 bg-light">
+        <div class="col-md-4">
+            <p class="text-uppercase pt-2">Prendas Exclusivas.</p>
+        </div>
+        <div class="col-md-6 text-nowrap">
+            <h2 class="pt-2">10% de descuento en tu primera compra</h2>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-dark">Comprar</button>
+        </div>
+    </div>
+
+    <!-- Carrusel de productos destacados -->
+    <div id="destacadosCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="assets/img/sudaderas.jpg" class="d-block w-100 carousel-image" alt="Producto Destacado 1">
+            </div>
+            <div class="carousel-item">
+                <img src="assets/img/gorras.jpg" class="d-block w-100 carousel-image" alt="Producto Destacado 2">
+            </div>
+            <div class="carousel-item">
+                <img src="assets/img/tenis.jpg" class="d-block w-100 carousel-image" alt="Producto Destacado 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#destacadosCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#destacadosCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Sección de productos -->
+    <section class="container py-5">
+        <h2 class="text-center fs-5 mb-4">PRODUCTOS</h2>
+        <div class="row products-grid">
+            <!-- Producto 1 -->
+            <div class="col-md-3">
+                <div class="card mb-4">
+                    <div class="p-4 text-center">
+                        <img src="assets/img/reloj1.png" class="card-img-top" alt="Michael Kors">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">MICHAEL KORS</h5>
+                        <p>Tenis Michael Kors colección dama.</p>
+                        <p class="fw-bold">$200.000</p>
+                        <a href="#" class="btn btn-outline-dark">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 2 -->
+            <div class="col-md-3">
+                <div class="card mb-4">
+                    <div class="p-4 text-center">
+                        <img src="assets/img/reloj2.png" class="card-img-top" alt="Keith Haring">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">KEITH HARING</h5>
+                        <p>Gorra colección Keith Haring.</p>
+                        <p class="fw-bold">$210.000</p>
+                        <a href="#" class="btn btn-outline-dark">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 3 -->
+            <div class="col-md-3">
+                <div class="card mb-4">
+                    <div class="p-4 text-center">
+                        <img src="assets/img/reloj3.png" class="card-img-top" alt="Motosport">
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title">MOTOSPORT</h5>
+                        <p>Conjunto moto sport para hombre.</p>
+                        <p class="fw-bold">$250.000</p>
+                        <a href="#" class="btn btn-outline-dark">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container p-5">
+        <div class="row">
+            <div class="col-md-6 pb-5 ps-5">
+                <h4>Sobre Nosotros</h4>
+                <p>ALKAPONE STORE es tu tienda de confianza para encontrar las prendas más exclusivas y de alta calidad. Nos especializamos en ropa, gorras y accesorios de las mejores marcas. Con nosotros, siempre estarás a la moda.</p>
+            </div>
+            <div class="col-md-6 pb-5 ps-5">
+                <h4>¿Por qué elegirnos?</h4>
+                <ul>
+                    <li>Calidad garantizada en cada producto.</li>
+                    <li>Ofertas y descuentos exclusivos para nuestros clientes.</li>
+                    <li>Atención personalizada y soporte al cliente 24/7.</li>
+                    <li>Envíos rápidos y seguros a todo el país.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-background">
+        <p>Términos legales Copyright.</p>
+        <div>
+            <div class="social-media">
+                <a href="https://www.instagram.com/alkapone.st0re_222/profilecard/?igsh=cW1wZ3ZlYWswNmF2"><img src="assets/img/instagram.png" alt="Instagram"></a>
+                <a href="https://wa.me/573187800480"><img src="assets/img/whatsapp.png" alt="WhatsApp"></a>
+                <a href="https://www.tiktok.com/@alkapone_store?_t=8r3w26fyxdu&_r=1"><img src="assets/img/tik-tok.png" alt="TikTok"></a>
+            </div>
+        </div>
+    </div>
+</footer>
