@@ -4,13 +4,15 @@ import { HomeComponent } from './home/home.component';
 import { ProductosComponent } from './productos/productos.component';
 import { GorrasComponent } from './gorras/gorras.component';
 import { AccesoriosComponent } from './accesorios/accesorios.component';
+import { RopaComponent } from './ropa/ropa.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     ProductosComponent,
     GorrasComponent,
-    AccesoriosComponent
+    AccesoriosComponent,
+    RopaComponent
   ],
   imports: [
     CommonModule
