@@ -4,18 +4,27 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductTableComponent } from './product-table/product-table.component';
 import { ProductFormComponent } from './product-form/product-form.component';
-
-
+import { MenuComponent } from './menu/menu.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     FooterComponent,
     ProductTableComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    MenuComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+     RouterModule
+  ],
+  exports: [
+    MenuComponent,
+    NavbarComponent,
+    FooterComponent,
+    ProductTableComponent,
+    ProductFormComponent
   ]
 })
 export class ComponentsModule { }

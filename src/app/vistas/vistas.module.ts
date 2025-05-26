@@ -1,27 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { HomeComponent } from './home/home.component';
-import { ProductosComponent } from './productos/productos.component';
+import { RopaComponent } from './ropa/ropa.component';
 import { GorrasComponent } from './gorras/gorras.component';
 import { AccesoriosComponent } from './accesorios/accesorios.component';
-import { RopaComponent } from './ropa/ropa.component';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ProductosComponent,
+    RopaComponent,
     GorrasComponent,
     AccesoriosComponent,
-    RopaComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ComponentsModule   // <-- Aquí debe ir para que funcione app-menu en HomeComponent
   ],
   exports: [
     HomeComponent,
-    ProductosComponent,
+    RopaComponent,
     GorrasComponent,
-    AccesoriosComponent
+    AccesoriosComponent,
+    // No es necesario exportar ComponentsModule aquí a menos que otro módulo lo necesite
   ]
 })
 export class VistasModule { }

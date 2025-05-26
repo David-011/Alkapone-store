@@ -1,0 +1,44 @@
+/* Centrar imagen de producto */
+.img-center {
+  display: block;
+  margin: 0 auto;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+/* Corazón normal */
+.heart-icon {
+  cursor: pointer;
+  transition: fill 0.3s ease;
+}
+
+/* Corazón marcado (like) */
+.heart-icon.liked {
+  fill: red !important;
+}
+
+/* Texto filtro y botón */
+.filter {
+  cursor: pointer;
+  color: #333;
+}
+
+.products-grid {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .product {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

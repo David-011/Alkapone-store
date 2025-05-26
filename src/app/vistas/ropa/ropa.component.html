@@ -1,1 +1,81 @@
-<p>ropa works!</p>
+<header>
+  <div class="d-flex justify-content-between align-items-center p-2">
+    <a routerLink="/home">
+      <img src="assets/img/Alk.jpg" alt="Logo Alkapone" width="200" height="100" />
+    </a>
+    <div class="icons d-flex gap-3 align-items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-search color" viewBox="0 0 15 15">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-person color" viewBox="0 0 15 15">
+        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bag color" viewBox="0 0 15 15">
+        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z" />
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="row text-center p-3 bg-light mb-3">
+    <h2 class="fs-5 m-0 fw-bold">HOMBRE ({{ allProducts.length }})</h2>
+  </div>
+  <div>
+    <h4 class="filter fs-6 mb-0 py-3 d-flex justify-content-center align-items-center gap-2">
+      ORGANIZAR: MÁS RECIENTE
+      <img src="assets/img/filter.png" alt="Filtro" width="15" height="15" />
+    </h4>
+  </div>
+
+  <section class="products-section">
+    <div class="products-grid row">
+      <div class="product col-md-3 mb-4" *ngFor="let product of displayedProducts">
+        <img class="img-center w-100" [src]="product.imgSrc" [alt]="product.alt" />
+        <div class="d-flex justify-content-between px-3 py-3 align-items-center">
+          <div>
+            <h3 class="fw-bold fs-6 mb-0">{{ product.title }}</h3>
+            <p class="mb-0">{{ product.price }}</p>
+          </div>
+          <div class="d-flex-center" (click)="toggleLike(product)" style="cursor:pointer;">
+            <svg *ngIf="!product.liked" class="heart-icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 16 16">
+              <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+            </svg>
+            <svg *ngIf="product.liked" class="heart-icon liked" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="red" viewBox="0 0 16 16">
+              <path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <button
+        class="btn btn-outline-dark fs-6 rounded-0 px-5"
+        *ngIf="canLoadMore()"
+        (click)="loadMore()"
+        aria-label="Ver más productos"
+      >
+        VER MÁS
+      </button>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="footer-background">
+    <p>Términos legales Copyright.</p>
+    <div>
+      <div class="social-media">
+        <a href="https://www.instagram.com/alkapone.st0re_222/profilecard/?igsh=cW1wZ3ZlYWswNmF2" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/instagram.png" alt="Instagram" />
+        </a>
+        <a href="https://wa.me/573187800480" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/whatsapp.png" alt="WhatsApp" />
+        </a>
+        <a href="https://www.tiktok.com/@alkapone_store?_t=8r3w26fyxdu&_r=1" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/tik-tok.png" alt="TikTok" />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
