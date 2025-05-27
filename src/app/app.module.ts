@@ -3,20 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';  // rutas
 import { AppComponent } from './app.component';
-
-import { VistasModule } from './vistas/vistas.module';      // donde están home, ropa, gorras, accesorios
-import { ComponentsModule } from './components/components.module';
 import { ServicesModule } from './services/services.module';
+import { FooterComponent } from './template/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    VistasModule,
-    ComponentsModule,
     ServicesModule,
   ],
   providers: [],
