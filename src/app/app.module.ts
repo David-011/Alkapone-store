@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';  // rutas
 import { AppComponent } from './app.component';
 import { ServicesModule } from './services/services.module';
 import { FooterComponent } from './template/footer/footer.component';
+import { HeaderComponent } from './template/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
