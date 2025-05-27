@@ -10,7 +10,12 @@ const routes: Routes = [
   { path: 'ropa', component: RopaComponent },
   { path: 'gorras', component: GorrasComponent },
   { path: 'accesorios', component: AccesoriosComponent },
-  { path: '**', redirectTo: '' }
+
+  {
+    path: 'product',
+    loadChildren: ()=> import('./product/product.module').then(m=> m.ProductModule)
+  }
+
 ];
 
 @NgModule({
