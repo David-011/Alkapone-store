@@ -6,7 +6,7 @@ import { GorrasComponent } from './vistas/gorras/gorras.component';
 import { AccesoriosComponent } from './vistas/accesorios/accesorios.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'ropa', component: RopaComponent },
   { path: 'gorras', component: GorrasComponent },
   { path: 'accesorios', component: AccesoriosComponent },

@@ -105,11 +105,15 @@ nav ul li {
     margin-right: 2em;
     font-size: 18px;
     padding-bottom: 4px;
+    margin-top: -10px;
+
 
 }
 nav ul li a {
     color: white;
     text-decoration: none;
+    position: relative;
+   
 }
 .products {
     display: flex;
@@ -241,7 +245,7 @@ div .social-media{
 
 .nav-underline .nav-link.active, .nav-underline .show>.nav-link {
     font-weight: 700;
-    color: #ffffff;
+    color: #ffffff !important;
     border-bottom-color: currentcolor;
 }
 
@@ -250,7 +254,7 @@ div .social-media{
     padding: 2px 2px;
     font-size: var(--bs-nav-link-font-size);
     font-weight: var(--bs-nav-link-font-weight);
-    color: #ffffff;
+    color: white !important;
     text-decoration: none;
     background: 0 0;
     border: 0;
@@ -259,7 +263,7 @@ div .social-media{
 
 .nav-link:focus, .nav-link:hover {
     /* color: #3f397b; */
-    color: #bbb8b7;
+    color: #ffffff;
 }
 
 /* ------------------------------ */
