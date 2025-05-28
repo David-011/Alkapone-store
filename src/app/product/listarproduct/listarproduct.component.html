@@ -37,41 +37,60 @@
       </form>
     </div>
   </nav>
-
-
+<div class="row justify-content-end">
+  <div class="col-lg-1 col-12" style="padding-left: 2.25rem;">
+    <button class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#modalproduct" (click)="NuevoPoducto()">
+      Nuevo
+    </button>
+  </div>
+</div>
   <div class="container-fluid mt-4">
     <table class="table table-striped table-hover text-center w-100">
-      <thead class="table-dark">
+      <thead class="table">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Categoría</th>
+          <th scope="col">Imagen</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>John</td>
-          <td>Doe</td>
-          <td>social</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-</body>
-
+        <tr *ngFor="let pd of VectorProduct">
+          <th scope="row">{{pd.id}}</th>
+          <td>{{pd.nombre}}</td>
+          <td>{{pd.Descripcion}}</td>
+          <td>{{ pd.precio | number:'1.0-0' }}</td>
+          <td>{{pd.categoria}}</td>
+          <td>{{pd.imagen}}</td>
+          <td>
+            <button class="btn btn-warning me-1" data-bs-toggle="modal" data-bs-target="#modalproduct" (click)="EditarProducto(pd)">Editar</button>
+            <button class="btn btn-danger" (click)="EliminarProducto(pd)">Eliminar</button>
+          </td>
+            </tr>
+            </tbody>
+         </table>
+        </div>
+    </body>
 </html>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalproduct" #modalproduct data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalproduct" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalproduct">{{isNew?'Nuevo':'Editar'}} Producto {{this.productoSeleccionado?.nombre}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-cu-product [product]="productoSeleccionado"></app-cu-product>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="GuardarProducto()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ServicesModule } from './services/services.module';
 import { FooterComponent } from './template/footer/footer.component';
 import { HeaderComponent } from './template/header/header.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HeaderComponent } from './template/header/header.component';
     BrowserModule,
     AppRoutingModule,
     ServicesModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
