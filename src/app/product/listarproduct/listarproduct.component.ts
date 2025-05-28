@@ -13,7 +13,9 @@ import { UtilityService } from '../../services/utility.service';
 export class ListarproductComponent {
   @ViewChild('modalproduct') modal: ElementRef | undefined;
 
-  VectorProduct:product[]= [];
+  VectorProduct:product[]= [
+    {id:1, nombre:"Camiseta y/out", Descripcion:"talla l", precio:120000, categoria:"top quality", imagen:"assets/img/camiseta1.png"}
+  ];
 
   productoSeleccionado: product | undefined = undefined;
   isNew: boolean = false;
