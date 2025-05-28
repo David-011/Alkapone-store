@@ -2,6 +2,8 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { product } from '../../models/product';
 import { Modal } from 'bootstrap';
 import Swal from 'sweetalert2';
+import { ProductService } from '../../services/product.service';
+import { UtilityService } from '../../services/utility.service';
 
 @Component({
   selector: 'app-listarproduct',
@@ -11,13 +13,25 @@ import Swal from 'sweetalert2';
 export class ListarproductComponent {
   @ViewChild('modalproduct') modal: ElementRef | undefined;
 
-  VectorProduct:product[]= [
-    {id:1, nombre:"Camiseta Y/out", Descripcion:"talla Xl-M", precio:120000.00, categoria:"Camisetas Top quality",imagen:"assets/img/camisa1.png"},
-    {id:2, nombre:"Camiseta Clemont", Descripcion:"talla Xl-M", precio:120000.00, categoria:"Camisetas Top quality",imagen:"assets/img/camisa2.png"}
-  ];
+  VectorProduct:product[]= [];
 
   productoSeleccionado: product | undefined = undefined;
   isNew: boolean = false;
+
+  isLoading=true;
+
+  constructor(private _productService: ProductService, private _util:UtilityService){
+    this.LoadProducts();
+  }
+  
+  LoadProducts(){
+    this.isLoading=true;
+    this._productService.getProductos()
+    .subscribe((rs)=>{
+      this.VectorProduct = rs;
+      this.isLoading = false;
+    });
+  }
 
   EditarProducto(product:product){
     console.log(product);
@@ -34,11 +48,11 @@ export class ListarproductComponent {
     if(this.isNew){
         this.VectorProduct.push(this.productoSeleccionado!); //Equivalente a llamar un API POST
         this.productoSeleccionado = undefined;
-        this.CerrarModal(this.modal)
+        this._util.CerrarModal(this.modal)
     }else{
       //llamada API PUT
         this.productoSeleccionado = undefined;
-        this.CerrarModal(this.modal)
+        this._util.CerrarModal(this.modal)
     }
     Swal.fire({
       title: 'Cambios guardados correctamente',
@@ -77,17 +91,5 @@ export class ListarproductComponent {
     });
   }
 
-  CerrarModal(modal: ElementRef | undefined){
-    if (modal){
-      let bsModal = Modal.getInstance(modal?.nativeElement)
-      bsModal?.hide();
 
-      let backdrop = document.querySelector(".modal-backdrop.fade.show");
-      if (backdrop){
-        backdrop.parentNode?.removeChild(backdrop);
-      }
-      document.body.removeAttribute('style');
-      document.body.removeAttribute('class');
-    }  
-  }
 }

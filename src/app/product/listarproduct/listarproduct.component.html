@@ -44,7 +44,14 @@
     </button>
   </div>
 </div>
-  <div class="container-fluid mt-4">
+
+<div class="d-flex justify-content-center" *ngIf="isLoading">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+  <div class="container-fluid mt-4" *ngIf="!isLoading">
     <table class="table table-striped table-hover text-center w-100">
       <thead class="table">
         <tr>
