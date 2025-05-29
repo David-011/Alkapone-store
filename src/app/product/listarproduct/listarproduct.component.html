@@ -59,18 +59,18 @@
           <th scope="col">Nombre</th>
           <th scope="col">Descripción</th>
           <th scope="col">Precio</th>
+          <th scope="col">Stock</th>
           <th scope="col">Categoría</th>
-          <th scope="col">Imagen</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let pd of VectorProduct">
           <th scope="row">{{pd.id}}</th>
           <td>{{pd.nombre}}</td>
-          <td>{{pd.Descripcion}}</td>
+          <td>{{pd.descripcion}}</td>
           <td>{{ pd.precio | number:'1.0-0' }}</td>
+          <td>{{pd.stock}}</td>
           <td>{{pd.categoria}}</td>
-          <td>{{pd.imagen}}</td>
           <td>
             <button class="btn btn-warning me-1" data-bs-toggle="modal" data-bs-target="#modalproduct" (click)="EditarProducto(pd)">Editar</button>
             <button class="btn btn-danger" (click)="EliminarProducto(pd)">Eliminar</button>

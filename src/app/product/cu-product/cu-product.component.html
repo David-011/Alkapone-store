@@ -7,13 +7,19 @@
 
   <div class="mb-3">
     <label for="DescripcionDelProducto" class="form-label">Descripción</label>
-    <input *ngIf="product" type="text" class="form-control" id="DescripcionDelProducto" name="Descripcion"
-      [(ngModel)]="product.Descripcion">
+    <input *ngIf="product" type="text" class="form-control" id="DescripcionDelProducto" name="descripcion"
+      [(ngModel)]="product.descripcion">
   </div>
 
   <div class="mb-3">
     <label for="PrecioProducto" class="form-label">Precio</label>
     <input *ngIf="product" type="number" step="0.01" class="form-control" id="PrecioProducto" name="precio" [(ngModel)]="product.precio">
+  </div>
+
+    <div class="mb-3">
+    <label for="StockProducto" class="form-label">Stock</label>
+    <input *ngIf="product" type="number" class="form-control" id="StockProducto" name="stock"
+      [(ngModel)]="product.stock">
   </div>
 
   <div class="mb-3">

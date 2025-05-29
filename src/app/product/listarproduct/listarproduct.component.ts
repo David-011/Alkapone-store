@@ -14,7 +14,7 @@ export class ListarproductComponent {
   @ViewChild('modalproduct') modal: ElementRef | undefined;
 
   VectorProduct:product[]= [
-    {id:1, nombre:"Camiseta y/out", Descripcion:"talla l", precio:120000, categoria:"top quality", imagen:"assets/img/camiseta1.png"}
+    {id:1, nombre:"Camiseta y/out", descripcion:"talla l", precio:120000, stock:6, categoria:"top quality"}
   ];
 
   productoSeleccionado: product | undefined = undefined;
@@ -43,7 +43,7 @@ export class ListarproductComponent {
  
   NuevoPoducto(){
     this.isNew = true;
-    this.productoSeleccionado = {id:0, nombre:"", Descripcion:"", precio:0, categoria:"", imagen:"" };
+    this.productoSeleccionado = {id:0, nombre:"", descripcion:"", precio:0, stock:0, categoria:"" };
   }
 
   GuardarProducto(){
