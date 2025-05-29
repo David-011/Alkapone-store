@@ -13,9 +13,7 @@ import { UtilityService } from '../../services/utility.service';
 export class ListarproductComponent {
   @ViewChild('modalproduct') modal: ElementRef | undefined;
 
-  VectorProduct:product[]= [
-    {id:1, nombre:"Camiseta y/out", descripcion:"talla l", precio:120000, stock:6, categoria:"top quality"}
-  ];
+  VectorProduct:product[]= [];
 
   productoSeleccionado: product | undefined = undefined;
   isNew: boolean = false;
@@ -43,7 +41,7 @@ export class ListarproductComponent {
  
   NuevoPoducto(){
     this.isNew = true;
-    this.productoSeleccionado = {id:0, nombre:"", descripcion:"", precio:0, stock:0, categoria:"" };
+    this.productoSeleccionado = {idProducto:0, nombre:"", descripcion:"", precio:0, stock:0, categoria:"" };
   }
 
   GuardarProducto(){
