@@ -9,13 +9,25 @@ import { environment } from '../../environments/environment';
 })
 export class ProductService {
 
-  apiBase='';
+  apiBase = '';
 
   constructor(private _http: HttpClient) {
     this.apiBase = environment.urlApiBase + 'product';
-   }
+  }
 
   getProductos(): Observable<product[]> {
     return this._http.get<product[]>(this.apiBase + '/');
+  }
+
+  addProducto(product: product): Observable<any> {
+    return this._http.post(this.apiBase + '/', product);
+  }
+
+  updateProducto(id: number, product: product): Observable<any> {
+    return this._http.put(`${this.apiBase}/${id}`, product);
+  }
+
+  deleteProducto(id: number): Observable<any> {
+    return this._http.delete(`${this.apiBase}/${id}`);
   }
 }

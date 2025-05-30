@@ -13,83 +13,108 @@ import { UtilityService } from '../../services/utility.service';
 export class ListarproductComponent {
   @ViewChild('modalproduct') modal: ElementRef | undefined;
 
-  VectorProduct:product[]= [];
+  VectorProduct: product[] = [];
 
   productoSeleccionado: product | undefined = undefined;
   isNew: boolean = false;
 
-  isLoading=true;
+  isLoading = true;
 
-  constructor(private _productService: ProductService, private _util:UtilityService){
+  constructor(private _productService: ProductService, private _util: UtilityService) {
     this.LoadProducts();
   }
-  
-  LoadProducts(){
-    this.isLoading=true;
+
+  LoadProducts() {
+    this.isLoading = true;
     this._productService.getProductos()
-    .subscribe((rs)=>{
-      this.VectorProduct = rs;
-      this.isLoading = false;
-    });
+      .subscribe((rs) => {
+        this.VectorProduct = rs;
+        this.isLoading = false;
+      });
   }
 
-  EditarProducto(product:product){
+  EditarProducto(product: product) {
     console.log(product);
     this.isNew = false;
-    this.productoSeleccionado = product;
+    this.productoSeleccionado = { ...product }; // Copia para evitar modificar el original
   }
- 
-  NuevoPoducto(){
+
+  NuevoPoducto() {
     this.isNew = true;
-    this.productoSeleccionado = {idProducto:0, nombre:"", descripcion:"", precio:0, stock:0, categoria:"" };
+    this.productoSeleccionado = {
+      idProducto: 0,
+      nombre: "",
+      descripcion: "",
+      precio: 0,
+      stock: 0,
+      categoria: ""
+    };
   }
 
-  GuardarProducto(){
-    if(this.isNew){
-        this.VectorProduct.push(this.productoSeleccionado!); //Equivalente a llamar un API POST
-        this.productoSeleccionado = undefined;
-        this._util.CerrarModal(this.modal)
-    }else{
-      //llamada API PUT
-        this.productoSeleccionado = undefined;
-        this._util.CerrarModal(this.modal)
-    }
-    Swal.fire({
-      title: 'Cambios guardados correctamente',
-      icon: 'success'
-    })
-  }
-
-  EliminarProducto(pd:product){
-    Swal.fire(
-      {
-        icon:'question',
-        title:`¿Está seguro que desea eliminar el producto '${pd.nombre}'?`,
-        showCancelButton:true,
-        showConfirmButton:true,
-        cancelButtonText:'No, conservar',
-        confirmButtonText:'Si, eliminar',
-        allowOutsideClick:false,
-        buttonsStyling:false,
-        reverseButtons:true,
-
-        customClass: {
-          cancelButton:'btn btn-secondary me-2',
-          confirmButton:'btn btn-danger'
+  GuardarProducto() {
+    if (this.isNew) {
+      this._productService.addProducto(this.productoSeleccionado!).subscribe({
+        next: () => {
+          this.LoadProducts();
+          this.productoSeleccionado = undefined;
+          this._util.CerrarModal(this.modal);
+          Swal.fire({
+            title: 'Producto creado correctamente',
+            icon: 'success'
+          });
+        },
+        error: () => {
+          Swal.fire('Error al crear el producto', '', 'error');
         }
-      }
-    )
-    .then(rs =>{
-    if(rs.isConfirmed){
-      //llamada API DELETE
-      Swal.fire({
-        title: 'Producto eliminado correctamente',
-        icon: 'success'
-      })
+      });
+    } else {
+      this._productService.updateProducto(this.productoSeleccionado!.idProducto, this.productoSeleccionado!).subscribe({
+        next: () => {
+          this.LoadProducts();
+          this.productoSeleccionado = undefined;
+          this._util.CerrarModal(this.modal);
+          Swal.fire({
+            title: 'Producto actualizado correctamente',
+            icon: 'success'
+          });
+        },
+        error: () => {
+          Swal.fire('Error al actualizar el producto', '', 'error');
+        }
+      });
     }
+  }
 
+  EliminarProducto(pd: product) {
+    Swal.fire({
+      icon: 'question',
+      title: `¿Está seguro que desea eliminar el producto '${pd.nombre}'?`,
+      showCancelButton: true,
+      showConfirmButton: true,
+      cancelButtonText: 'No, conservar',
+      confirmButtonText: 'Sí, eliminar',
+      allowOutsideClick: false,
+      buttonsStyling: false,
+      reverseButtons: true,
+      customClass: {
+        cancelButton: 'btn btn-secondary me-2',
+        confirmButton: 'btn btn-danger'
+      }
+    }).then(rs => {
+      if (rs.isConfirmed) {
+        this._productService.deleteProducto(pd.idProducto).subscribe({
+          next: () => {
+            this.LoadProducts();
+            Swal.fire({
+              title: 'Producto eliminado correctamente',
+              icon: 'success'
+            });
+          },
+          error: () => {
+            Swal.fire('Error al eliminar el producto', '', 'error');
+          }
+        });
+      }
     });
   }
-
-
 }

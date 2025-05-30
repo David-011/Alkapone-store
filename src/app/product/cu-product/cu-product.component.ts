@@ -1,12 +1,19 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { product } from '../../models/product';
 
 @Component({
   selector: 'app-cu-product',
-  templateUrl: './cu-product.component.html',
-  styleUrl: './cu-product.component.css'
+  templateUrl: './cu-product.component.html'
 })
-export class CuProductComponent {
-  @Input() product: product | undefined; 
+export class CuProductComponent implements OnChanges {
 
+@Input() product: product | undefined;
+
+  constructor() { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['product'] && this.product) {
+      // Si quisieras hacer una copia por separado, podrías hacerlo aquí
+    }
+  }
 }
