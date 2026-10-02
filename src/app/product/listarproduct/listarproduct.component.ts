@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { product } from '../../models/product';
+import { Product } from '../../models/product';
 import { Modal } from 'bootstrap';
 import Swal from 'sweetalert2';
 import { ProductService } from '../../services/product.service';
@@ -13,9 +13,9 @@ import { UtilityService } from '../../services/utility.service';
 export class ListarproductComponent {
   @ViewChild('modalproduct') modal: ElementRef | undefined;
 
-  VectorProduct: product[] = [];
+  VectorProduct: Product[] = [];
 
-  productoSeleccionado: product | undefined = undefined;
+  productoSeleccionado: Product | undefined = undefined;
   isNew: boolean = false;
 
   isLoading = true;
@@ -33,7 +33,7 @@ export class ListarproductComponent {
       });
   }
 
-  EditarProducto(product: product) {
+  EditarProducto(product: Product) {
     console.log(product);
     this.isNew = false;
     this.productoSeleccionado = { ...product }; // Copia para evitar modificar el original
@@ -85,7 +85,7 @@ export class ListarproductComponent {
     }
   }
 
-  EliminarProducto(pd: product) {
+  EliminarProducto(pd: Product) {
     Swal.fire({
       icon: 'question',
       title: `¿Está seguro que desea eliminar el producto '${pd.nombre}'?`,

@@ -1,0 +1,86 @@
+<section class="auth-page">
+  <div class="auth-container">
+    <!-- Left Side - Branding -->
+    <div class="auth-brand">
+      <div class="brand-content">
+        <span class="brand-logo">ALKAPONE<span class="dot">.</span></span>
+        <h2>Tu estilo, tu identidad</h2>
+        <p>Streetwear premium para quienes marcan tendencia</p>
+      </div>
+    </div>
+
+    <!-- Right Side - Form -->
+    <div class="auth-form-container">
+      <!-- Login Form -->
+      <div class="auth-form" *ngIf="isLogin">
+        <h2>Iniciar Sesión</h2>
+        <p class="auth-subtitle">Ingresa a tu cuenta Alkapone</p>
+
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" placeholder="tu@correo.com" [(ngModel)]="loginData.correo">
+        </div>
+
+        <div class="form-group">
+          <label>Contraseña</label>
+          <input type="password" placeholder="Tu contraseña" [(ngModel)]="loginData.contrasena">
+        </div>
+
+        <button class="btn-auth" (click)="login()" [disabled]="isLoading">
+          <span *ngIf="!isLoading">Iniciar Sesión</span>
+          <span *ngIf="isLoading">Cargando...</span>
+        </button>
+
+        <p class="auth-toggle">
+          ¿No tienes cuenta? <a (click)="toggleMode()">Regístrate aquí</a>
+        </p>
+      </div>
+
+      <!-- Register Form -->
+      <div class="auth-form" *ngIf="!isLogin">
+        <h2>Crear Cuenta</h2>
+        <p class="auth-subtitle">Únete a la comunidad Alkapone</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre *</label>
+            <input type="text" placeholder="Tu nombre" [(ngModel)]="registerData.nombre">
+          </div>
+          <div class="form-group">
+            <label>Apellido *</label>
+            <input type="text" placeholder="Tu apellido" [(ngModel)]="registerData.apellido">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Correo electrónico *</label>
+          <input type="email" placeholder="tu@correo.com" [(ngModel)]="registerData.correo">
+        </div>
+
+        <div class="form-group">
+          <label>Contraseña *</label>
+          <input type="password" placeholder="Mínimo 6 caracteres" [(ngModel)]="registerData.contrasena">
+        </div>
+
+        <div class="form-group">
+          <label>Dirección</label>
+          <input type="text" placeholder="Tu dirección (opcional)" [(ngModel)]="registerData.direccion">
+        </div>
+
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="text" placeholder="Tu teléfono (opcional)" [(ngModel)]="registerData.telefono">
+        </div>
+
+        <button class="btn-auth" (click)="register()" [disabled]="isLoading">
+          <span *ngIf="!isLoading">Crear Cuenta</span>
+          <span *ngIf="isLoading">Cargando...</span>
+        </button>
+
+        <p class="auth-toggle">
+          ¿Ya tienes cuenta? <a (click)="toggleMode()">Inicia sesión</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

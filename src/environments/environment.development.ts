@@ -1,4 +1,4 @@
 export const environment = {
-    productio:true,
-    urlApiBase:'http://localhost:3000/api/'
+    production: false,
+    urlApiBase: 'https://turbo-sniffle-x5xgg4x9jjxj3pw55-3000.app.github.dev/api/'
 };
