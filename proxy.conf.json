@@ -1,7 +1,8 @@
 {
   "/api": {
-    "target": "https://miniature-adventure-jj9ppg94x65qcp9qw-3000.app.github.dev",
-    "secure": true,
-    "changeOrigin": true
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
   }
 }

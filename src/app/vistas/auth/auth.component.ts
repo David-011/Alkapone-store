@@ -47,6 +47,7 @@ export class AuthComponent {
     this.isLoading = true;
     this.clienteService.getClientePorCorreo(this.loginData.correo).subscribe({
       next: (response: any) => {
+        console.log('RESPUESTA LOGIN:', JSON.stringify(response));
         const arr = Array.isArray(response) ? response : [response];
         if (arr.length > 0) {
           const cliente = arr[0];

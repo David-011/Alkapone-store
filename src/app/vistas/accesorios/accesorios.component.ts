@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
-import { Product } from '../../models/product';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-accesorios',
@@ -9,27 +9,29 @@ import { Product } from '../../models/product';
 })
 export class AccesoriosComponent implements OnInit {
 
-  products: Product[] = [];
-  filteredProducts: Product[] = [];
-  isLoading = true;
-  sortOption = 'recent';
+  products: any[] = [];
+  filteredProducts: any[] = [];
   searchTerm = '';
+  sortOrder = 'default';
+  isLoading = true;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.loadProducts();
   }
 
   loadProducts(): void {
-    this.isLoading = true;
     this.productService.getProductos().subscribe({
-      next: (products) => {
-        this.products = products.filter(p => p.categoria === 'Accesorios');
+      next: (data: any[]) => {
+        this.products = data.filter(p => p.categoria === 'Accesorios');
         this.filteredProducts = [...this.products];
         this.isLoading = false;
       },
-      error: (err) => {
+      error: (err: any) => {
         console.error('Error al cargar productos:', err);
         this.isLoading = false;
       }
@@ -44,19 +46,15 @@ export class AccesoriosComponent implements OnInit {
   }
 
   sortProducts(): void {
-    switch (this.sortOption) {
-      case 'price-low':
-        this.filteredProducts.sort((a, b) => a.precio - b.precio);
-        break;
-      case 'price-high':
-        this.filteredProducts.sort((a, b) => b.precio - a.precio);
-        break;
-      case 'name':
-        this.filteredProducts.sort((a, b) => a.nombre.localeCompare(b.nombre));
-        break;
-      default:
-        this.filteredProducts = [...this.products];
+    if (this.sortOrder === 'asc') {
+      this.filteredProducts.sort((a, b) => a.precio - b.precio);
+    } else if (this.sortOrder === 'desc') {
+      this.filteredProducts.sort((a, b) => b.precio - a.precio);
     }
+  }
+
+  addToCart(product: any): void {
+    this.cartService.addToCart(product);
   }
 
   formatPrice(price: number): string {

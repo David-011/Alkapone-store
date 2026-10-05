@@ -1,65 +1,56 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-  isScrolled = false;
-  menuOpen = false;
-  searchOpen = false;
+export class HeaderComponent {
+
+  isMenuOpen = false;
+  isSearchOpen = false;
   searchTerm = '';
-  clienteLogueado: any = null;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public cartService: CartService) {}
 
-  ngOnInit(): void {
-    this.checkLogin();
+  get clienteNombre(): string | null {
+    const c = localStorage.getItem('cliente');
+    if (c) {
+      const cliente = JSON.parse(c);
+      return cliente['Nombre'] || cliente['nombre'] || null;
+    }
+    return null;
   }
 
-  @HostListener('window:scroll')
-  onScroll() {
-    this.isScrolled = window.scrollY > 50;
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-    if (this.menuOpen) this.searchOpen = false;
+  toggleSearch(): void {
+    this.isSearchOpen = !this.isSearchOpen;
+    if (!this.isSearchOpen) this.searchTerm = '';
   }
 
-  toggleSearch() {
-    this.searchOpen = !this.searchOpen;
-    if (this.searchOpen) this.menuOpen = false;
-  }
-
-  search() {
+  search(): void {
     if (this.searchTerm.trim()) {
       this.router.navigate(['/ropa'], { queryParams: { q: this.searchTerm } });
-      this.searchOpen = false;
-      this.searchTerm = '';
+      this.isSearchOpen = false;
     }
   }
 
-  checkLogin(): void {
-    const cliente = localStorage.getItem('cliente');
-    if (cliente) {
-      this.clienteLogueado = JSON.parse(cliente);
-    }
+  goToCart(): void {
+    this.router.navigate(['/carrito']);
   }
 
   goToAuth(): void {
-    if (this.clienteLogueado) {
-      this.logout();
-    } else {
-      this.router.navigate(['/auth']);
-    }
+    this.router.navigate(['/auth']);
   }
 
   logout(): void {
     localStorage.removeItem('cliente');
-    this.clienteLogueado = null;
+    localStorage.removeItem('carrito');
     this.router.navigate(['/home']);
   }
 }

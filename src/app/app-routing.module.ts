@@ -5,6 +5,7 @@ import { RopaComponent } from './vistas/ropa/ropa.component';
 import { GorrasComponent } from './vistas/gorras/gorras.component';
 import { AccesoriosComponent } from './vistas/accesorios/accesorios.component';
 import { AuthComponent } from './vistas/auth/auth.component';
+import { CarritoComponent } from './vistas/carrito/carrito.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,10 +14,8 @@ const routes: Routes = [
   { path: 'gorras', component: GorrasComponent },
   { path: 'accesorios', component: AccesoriosComponent },
   { path: 'auth', component: AuthComponent },
-  {
-    path: 'product',
-    loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
-  },
+  { path: 'carrito', component: CarritoComponent },
+  { path: 'product', loadChildren: () => import('./product/product.module').then(m => m.ProductModule) },
   { path: '**', redirectTo: 'home' }
 ];
 
