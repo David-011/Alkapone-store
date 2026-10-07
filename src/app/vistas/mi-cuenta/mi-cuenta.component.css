@@ -1,0 +1,139 @@
+.mi-cuenta-page {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 60vh;
+}
+.cuenta-container {
+  display: flex;
+  gap: 40px;
+}
+.sidebar {
+  width: 250px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+}
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+}
+.sidebar h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+.sidebar p {
+  color: #666;
+  font-size: 13px;
+  margin: 0 0 15px;
+}
+.sidebar hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 15px 0;
+}
+.sidebar-link { text-decoration: none;
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #333;
+  transition: background 0.2s;
+}
+.sidebar-link:hover {
+  background: #eee;
+}
+.sidebar-link.active {
+  background: #111;
+  color: #fff;
+}
+.main-content {
+  flex: 1;
+}
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.profile-header h2 {
+  font-size: 24px;
+  margin: 0;
+}
+.btn-edit {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn-edit:hover {
+  background: #333;
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+.label {
+  font-weight: 600;
+  font-size: 13px;
+  color: #666;
+  text-transform: uppercase;
+}
+.value {
+  font-size: 15px;
+  color: #111;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+.form-group input:focus {
+  outline: none;
+  border-color: #111;
+}
+.btn-save {
+  background: #111;
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 10px;
+}
+.btn-save:hover {
+  background: #333;
+}
+.logout-link { color: #dc3545; font-weight: 600; }
+.logout-link:hover { color: #a71d2a; background: #fff5f5; }

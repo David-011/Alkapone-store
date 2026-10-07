@@ -5,7 +5,10 @@ import { RopaComponent } from './vistas/ropa/ropa.component';
 import { GorrasComponent } from './vistas/gorras/gorras.component';
 import { AccesoriosComponent } from './vistas/accesorios/accesorios.component';
 import { AuthComponent } from './vistas/auth/auth.component';
+import { MiCuentaComponent } from './vistas/mi-cuenta/mi-cuenta.component';
+import { BusquedaComponent } from "./vistas/busqueda/busqueda.component";
 import { CarritoComponent } from './vistas/carrito/carrito.component';
+import { CheckoutComponent } from './vistas/checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,9 +17,10 @@ const routes: Routes = [
   { path: 'gorras', component: GorrasComponent },
   { path: 'accesorios', component: AccesoriosComponent },
   { path: 'auth', component: AuthComponent },
+  { path: 'mi-cuenta', component: MiCuentaComponent },
+  { path: 'busqueda', component: BusquedaComponent },
   { path: 'carrito', component: CarritoComponent },
-  { path: 'product', loadChildren: () => import('./product/product.module').then(m => m.ProductModule) },
-  { path: '**', redirectTo: 'home' }
+  { path: 'checkout', component: CheckoutComponent }
 ];
 
 @NgModule({

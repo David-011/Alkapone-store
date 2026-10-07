@@ -1,0 +1,63 @@
+<section class="mi-cuenta-page">
+  <div class="cuenta-container" *ngIf="cliente">
+    <div class="sidebar">
+      <div class="avatar">{{ inicial }}</div>
+      <h3>{{ cliente.Nombre }} {{ cliente.Apellido }}</h3>
+      <p>{{ cliente.Correo }}</p>
+      <hr>
+      <a class="sidebar-link active">Mi Perfil</a>
+      <a class="sidebar-link logout-link" (click)="cerrarSesion()">Cerrar Sesion</a>
+    </div>
+    <div class="main-content">
+      <div class="profile-header">
+        <h2>Mi Perfil</h2>
+        <button class="btn-edit" (click)="toggleEdit()">{{ editMode ? 'Cancelar' : 'Editar' }}</button>
+      </div>
+      <div class="profile-info" *ngIf="!editMode">
+        <div class="info-row">
+          <span class="label">NOMBRE</span>
+          <span class="value">{{ cliente.Nombre }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">APELLIDO</span>
+          <span class="value">{{ cliente.Apellido }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">CORREO</span>
+          <span class="value">{{ cliente.Correo }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">TELEFONO</span>
+          <span class="value">{{ cliente.Telefono }}</span>
+        </div>
+        <div class="info-row">
+          <span class="label">DIRECCION</span>
+          <span class="value">{{ cliente.Direccion }}</span>
+        </div>
+      </div>
+      <div class="profile-edit" *ngIf="editMode">
+        <div class="form-group">
+          <label>NOMBRE</label>
+          <input type="text" [(ngModel)]="editData.Nombre">
+        </div>
+        <div class="form-group">
+          <label>APELLIDO</label>
+          <input type="text" [(ngModel)]="editData.Apellido">
+        </div>
+        <div class="form-group">
+          <label>CORREO</label>
+          <input type="email" [(ngModel)]="editData.Correo">
+        </div>
+        <div class="form-group">
+          <label>TELEFONO</label>
+          <input type="text" [(ngModel)]="editData.Telefono">
+        </div>
+        <div class="form-group">
+          <label>DIRECCION</label>
+          <input type="text" [(ngModel)]="editData.Direccion">
+        </div>
+        <button class="btn-save" (click)="guardarCambios()">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</section>

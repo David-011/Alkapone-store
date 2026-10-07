@@ -11,26 +11,25 @@
   padding: 0 2.5rem;
   display: flex;
   align-items: center;
-  height: 72px;
+  height: 70px;
 }
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 900;
-  color: #111;
+  color: #0d0d0d;
   text-decoration: none;
   letter-spacing: 2px;
-  white-space: nowrap;
-  flex: 0 0 200px;
+  flex-shrink: 0;
+  margin-right: 3rem;
 }
 .dot { color: #ff4a17; }
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 0;
+  gap: 2.5rem;
   margin: 0;
   padding: 0;
   flex: 1;
-  justify-content: center;
 }
 .nav-links li a {
   text-decoration: none;
@@ -39,7 +38,6 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  padding: 0 1.5rem;
   transition: color .2s ease;
   white-space: nowrap;
 }
@@ -52,26 +50,24 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  flex: 0 0 200px;
-  justify-content: flex-end;
+  flex-shrink: 0;
 }
 .icon-btn {
   background: none;
   border: none;
   cursor: pointer;
-  color: #111;
+  color: #1a1a1a;
   padding: 4px;
   display: flex;
   align-items: center;
-  justify-content: center;
   transition: color .2s ease;
 }
 .icon-btn:hover { color: #ff4a17; }
 .cart-btn { position: relative; }
 .cart-badge {
   position: absolute;
-  top: -5px;
-  right: -8px;
+  top: -6px;
+  right: -6px;
   background-color: #ff4a17;
   color: #fff;
   font-size: 10px;
@@ -89,16 +85,17 @@
   gap: 8px;
 }
 .user-name {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  color: #111;
-  white-space: nowrap;
+  color: #1a1a1a;
+  cursor: pointer;
 }
+.user-name:hover { color: #ff4a17; }
 .btn-logout {
   background: none;
   border: none;
   color: #ff4a17;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   text-transform: uppercase;
@@ -110,7 +107,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #111;
+  color: #1a1a1a;
 }
 .search-bar {
   display: none;
@@ -138,10 +135,9 @@
   color: #fff;
   border: none;
   padding: 10px 24px;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
   cursor: pointer;
 }
 .search-container button:hover { background-color: #ff4a17; }
@@ -150,7 +146,7 @@
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 72px;
+    top: 70px;
     left: 0;
     right: 0;
     background: #fff;
@@ -159,10 +155,7 @@
     z-index: 999;
   }
   .nav-links.active { display: flex; }
-  .nav-links li a { padding: 12px 0; display: block; }
   .menu-toggle { display: block; }
-  .nav-icons { gap: 12px; flex: 0; }
-  .logo { flex: 1; }
-  .user-name { display: none; }
+  .nav-icons { gap: 12px; }
   .nav-container { padding: 0 1rem; }
 }

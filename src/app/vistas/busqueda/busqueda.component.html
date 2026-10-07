@@ -1,0 +1,25 @@
+<section class="search-page">
+  <div class="container">
+    <h2 class="search-title">Resultados para: "{{ termino }}"</h2>
+    <p class="search-count">{{ resultados.length }} producto(s) encontrado(s)</p>
+
+    <div class="products-grid" *ngIf="resultados.length > 0">
+      <div class="product-card" *ngFor="let product of resultados">
+        <div class="product-image">
+          <img [src]="product.imagen || product.Imagen" [alt]="product.nombre || product.Nombre" class="product-img">
+        </div>
+        <div class="product-info">
+          <span class="product-category">{{ product.categoria || product.Categoria }}</span>
+          <h3 class="product-name">{{ product.nombre || product.Nombre }}</h3>
+          <p class="product-price">{{ formatPrice(product.precio || product.Precio) }}</p>
+          <button class="btn-add-cart" (click)="addToCart(product)">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="no-results" *ngIf="resultados.length === 0">
+      <p>No se encontraron productos para "{{ termino }}"</p>
+      <a routerLink="/home" class="btn-back">Volver al inicio</a>
+    </div>
+  </div>
+</section>
