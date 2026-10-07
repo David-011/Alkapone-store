@@ -8,22 +8,25 @@
       <li><a routerLink="/accesorios" routerLinkActive="active">Accesorios</a></li>
     </ul>
     <div class="nav-icons">
-      <button class="icon-btn" (click)="toggleSearch()">
+      <button class="icon-btn" (click)="toggleSearch()" title="Buscar">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       </button>
-      <button class="icon-btn">
+      <button class="icon-btn" title="Favoritos">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.26 3-5.5A3.5 3.5 0 0 0 18.5 5c-1.43 0-2.7.84-3.5 2-.8-1.16-2.07-2-3.5-2A3.5 3.5 0 0 0 8 8.5c0 2.24 1.51 4.04 3 5.5l4 4 4-4z"/></svg>
       </button>
-      <button class="icon-btn cart-btn" (click)="goToCart()">
+      <button class="icon-btn cart-btn" (click)="goToCart()" title="Carrito">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
         <span class="cart-badge" *ngIf="cartService.getTotalItems() > 0">{{ cartService.getTotalItems() }}</span>
       </button>
-      <button class="icon-btn" *ngIf="!clienteNombre" (click)="goToAuth()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </button>
-      <div class="user-menu" *ngIf="clienteNombre">
-        <span class="user-name" style="cursor:pointer" (click)="irAMiCuenta()">Hola, {{ clienteNombre }}</span>
-        <button class="btn-logout" (click)="logout()">Salir</button>
+      <div class="account">
+        <button class="icon-btn" (click)="clienteNombre ? irAMiCuenta() : goToAuth()" title="Mi cuenta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </button>
+        <div class="account-dropdown" *ngIf="clienteNombre">
+          <span class="account-hello">Hola, {{ clienteNombre }}</span>
+          <button (click)="irAMiCuenta()">Mi cuenta</button>
+          <button class="logout" (click)="logout()">Salir</button>
+        </div>
       </div>
       <button class="menu-toggle" (click)="toggleMenu()">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
