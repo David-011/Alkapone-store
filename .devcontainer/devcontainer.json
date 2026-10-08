@@ -2,7 +2,8 @@
   "name": "Alkapone Store",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
   "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/git-lfs:1": {}
   },
   "forwardPorts": [4200, 3000],
   "portsAttributes": {
