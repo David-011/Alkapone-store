@@ -36,10 +36,10 @@ echo "[4/4] Backend y frontend..."
 mkdir -p .logs
 printf "export const environment = {\n    production: false,\n    urlApiBase: '/api/'\n};\n" > src/environments/environment.development.ts
 if ! curl -s -o /dev/null http://localhost:3000/api/product; then
-  (cd backend && nohup npm start > "$ROOT/.logs/backend.log" 2>&1 &)
+  (cd backend && setsid nohup npm start > "$ROOT/.logs/backend.log" 2>&1 &)
 fi
 if ! curl -s -o /dev/null http://localhost:4200; then
-  nohup npx ng serve --host 0.0.0.0 --proxy-config proxy.conf.json > "$ROOT/.logs/frontend.log" 2>&1 &
+  setsid nohup npx ng serve --host 0.0.0.0 --proxy-config proxy.conf.json > "$ROOT/.logs/frontend.log" 2>&1 &
 fi
 echo "Esperando que arranquen..."
 for i in $(seq 1 60); do
