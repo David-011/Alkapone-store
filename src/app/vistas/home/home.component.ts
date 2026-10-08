@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     this.isLoading = true;
     this.productService.getProductos().subscribe({
       next: (products) => {
-        this.featuredProducts = products;
+        this.featuredProducts = products.slice(0, 8);
         this.isLoading = false;
       },
       error: (err) => {

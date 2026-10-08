@@ -9,7 +9,7 @@ CREATE TABLE Pago (IdPago INT IDENTITY(1,1) PRIMARY KEY, IdPedido INT FOREIGN KE
 CREATE TABLE PQRS (IdPQRS INT IDENTITY(1,1) PRIMARY KEY, IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente), Tipo VARCHAR(50), Descripcion TEXT, FechaCreacion DATETIME DEFAULT GETDATE(), Estado VARCHAR(50));
 CREATE TABLE ChatBot (IdChat INT IDENTITY(1,1) PRIMARY KEY, IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente), Mensaje TEXT, Respuesta TEXT, FechaChat DATETIME DEFAULT GETDATE());
 
-INSERT INTO producto VALUES ('Camiseta Tipo Polo','Polo clasica en algodon premium',85000.00,15,'Ropa','https://images.unsplash.com/photo-1625910513413-5fc08ef62888?w=400');
+INSERT INTO producto VALUES ('Camiseta Tipo Polo','Polo clasica en algodon premium',85000.00,15,'Ropa','https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400');
 INSERT INTO producto VALUES ('Hoodie Urban Gris','Hoodie oversize gris urbano',150000.00,10,'Ropa','https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400');
 INSERT INTO producto VALUES ('Camiseta Oversize Negra','Camiseta oversize corte relajado',75000.00,20,'Ropa','https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400');
 INSERT INTO producto VALUES ('Jogger Streetwear','Jogger negro estilo urbano',130000.00,12,'Ropa','https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=400');
@@ -18,7 +18,7 @@ INSERT INTO producto VALUES ('Camiseta Estampada','Camiseta con estampado grafic
 INSERT INTO producto VALUES ('Pantalon Cargo','Cargo pants estilo militar',145000.00,10,'Ropa','https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400');
 INSERT INTO producto VALUES ('Conjunto Deportivo','Set deportivo completo',180000.00,7,'Ropa','https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400');
 INSERT INTO producto VALUES ('Camisa Manga Larga','Camisa formal slim fit',135000.00,12,'Ropa','https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400');
-INSERT INTO producto VALUES ('Gorra Snapback Negra','Snapback plana negra clasica',55000.00,30,'Gorras','https://images.unsplash.com/photo-1588850561407-ed78c334e67a?w=400');
+INSERT INTO producto VALUES ('Gorra Snapback Negra','Snapback plana negra clasica',55000.00,30,'Gorras','https://images.unsplash.com/photo-1529958030586-3aae4ca485ff?w=400');
 INSERT INTO producto VALUES ('Gorra Dad Hat Beige','Dad hat beige estilo vintage',48000.00,20,'Gorras','https://images.unsplash.com/photo-1521369909029-2afed882baee?w=400');
 INSERT INTO producto VALUES ('Gorra Trucker','Trucker cap con malla',52000.00,15,'Gorras','https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?w=400');
 INSERT INTO producto VALUES ('Gorra Fitted','Fitted cap negra premium',65000.00,18,'Gorras','https://images.unsplash.com/photo-1534215754734-18e55d13e346?w=400');
@@ -31,3 +31,10 @@ INSERT INTO producto VALUES ('Cinturon de Cuero','Cinturon negro cuero genuino',
 INSERT INTO producto VALUES ('Billetera Premium','Billetera de cuero slim',85000.00,18,'Accesorios','https://images.unsplash.com/photo-1627123424574-724758594e93?w=400');
 INSERT INTO producto VALUES ('Lentes de Sol Urban','Lentes estilo retro premium',65000.00,22,'Accesorios','https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400');
 INSERT INTO Cliente (Nombre,Apellido,Correo,Contrasena,Direccion,Telefono) VALUES ('David','Cardona','david@alkapone.com','123456','Envigado','3001234567');
+UPDATE producto SET imagen='https://images.unsplash.com/photo-1714317438040-0e8584215699?w=600&q=80' WHERE idProducto=1;
+UPDATE producto SET imagen='https://images.unsplash.com/photo-1714317438040-0e8584215699?w=600&q=80' WHERE idProducto=1;
+UPDATE producto SET imagen='https://images.unsplash.com/photo-1737666636073-f15d9762cf83?w=600&q=80' WHERE idProducto=10;
+UPDATE producto SET imagen='https://media.istockphoto.com/id/2228662200/photo/isolated-black-bucket-hat-casual-fashion-accessory.jpg?w=600&q=80' WHERE idProducto=14;
+UPDATE producto SET imagen='https://images.unsplash.com/photo-1696688713460-de12ac76ebc6?w=600&q=80' WHERE idProducto=16;
+UPDATE producto SET imagen='https://media.istockphoto.com/id/1365561679/photo/handsome-young-man-wearing-white-sweatshirt.jpg?w=600&q=80' WHERE idProducto=14;
+UPDATE producto SET imagen='https://plus.unsplash.com/premium_photo-1690038780540-0ecaf08f6099?w=600&q=80' WHERE idProducto=14;
