@@ -7,11 +7,16 @@ SQLCMD="docker exec -i sqlserver /opt/mssql-tools18/bin/sqlcmd -S localhost -U s
 
 echo "[1/4] SQL Server..."
 if docker ps -a --format '{{.Names}}' | grep -qx sqlserver; then
-  docker start sqlserver > /dev/null
+  if ! docker start sqlserver > /dev/null 2>&1; then
+    echo "      Contenedor danado, recreando..."
+    docker rm -f sqlserver > /dev/null 2>&1
+    docker run -e ACCEPT_EULA=Y -e "MSSQL_SA_PASSWORD=$PASS" -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest > /dev/null
+  fi
 else
   docker run -e ACCEPT_EULA=Y -e "MSSQL_SA_PASSWORD=$PASS" -p 1433:1433 --name sqlserver -d mcr.microsoft.com/mssql/server:2022-latest > /dev/null
 fi
-until $SQLCMD -Q "SELECT 1" > /dev/null 2>&1; do sleep 3; done
+for i in $(seq 1 40); do $SQLCMD -Q "SELECT 1" > /dev/null 2>&1 && break; sleep 3; done
+$SQLCMD -Q "SELECT 1" > /dev/null 2>&1 || { echo "ERROR: SQL Server no responde"; exit 1; }
 
 echo "[2/4] Base de datos..."
 HAY=$($SQLCMD -h -1 -W -Q "SET NOCOUNT ON; SELECT COUNT(*) FROM sys.databases WHERE name='PPI'" | tr -d '[:space:]')
