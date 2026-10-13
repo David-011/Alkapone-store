@@ -1,27 +1,35 @@
-# AlkaponeStore
+# ALKAPONE STORE
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
+Tienda de ropa online (streetwear) desarrollada para la asignatura **Despliegue del Sistema**.
 
-## Development server
+## Funcionalidades
+- Catalogo por categorias (Ropa, Gorras, Accesorios) y buscador
+- Registro e inicio de sesion de clientes, pagina Mi Cuenta
+- Carrito de compras y checkout
+- Pedidos y pagos guardados en SQL Server (con descuento de stock)
+- Favoritos y formulario PQRS guardado en la base de datos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Arquitectura
+- Frontend: Angular 17 (TypeScript, CSS), puerto 4200
+- Backend: Node.js 20 + Express 4 + TypeScript, API REST, puerto 3000
+- Base de datos: SQL Server 2022 en Docker (base PPI)
+- Entorno: GitHub Codespaces con Dev Container, que levanta todo solo
 
-## Code scaffolding
+## Como ejecutarlo
+Abrir un Codespace del repositorio y esperar 3 a 4 minutos. El script scripts/start.sh levanta SQL Server, crea la base de datos desde backend/db/init.sql, e inicia backend y frontend.
+Si algo no arranca, ejecutar en la terminal: bash scripts/start.sh
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Usuario de prueba: david@alkapone.com / 123456
 
-## Build
+## Estructura
+- src/ : frontend Angular (vistas, servicios, template)
+- backend/src/ : API (routes, dao, models)
+- backend/db/init.sql : tablas y datos de prueba
+- scripts/start.sh : arranque automatico
+- .devcontainer/ : configuracion del Codespace
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Pendiente para produccion
+- Cifrar contrasenas (hoy se guardan en texto plano)
+- Mover credenciales a variables de entorno y restringir CORS
+- Integrar una pasarela de pagos real (hoy el pago se registra sin cobro)
+- Imagenes alojadas en el proyecto en lugar de enlaces externos
