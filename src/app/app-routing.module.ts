@@ -11,6 +11,7 @@ import { CarritoComponent } from './vistas/carrito/carrito.component';
 import { CheckoutComponent } from './vistas/checkout/checkout.component';
 import { FavoritosComponent } from './vistas/favoritos/favoritos.component';
 import { PqrsComponent } from './vistas/pqrs/pqrs.component';
+import { InfoComponent } from './vistas/info/info.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'favoritos', component: FavoritosComponent },
   { path: 'pqrs', component: PqrsComponent },
+  { path: 'info/:tema', component: InfoComponent },
 
 ];
 

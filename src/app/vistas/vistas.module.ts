@@ -9,6 +9,7 @@ import { AccesoriosComponent } from './accesorios/accesorios.component';
 import { ComponentsModule } from '../components/components.module';
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { PqrsComponent } from './pqrs/pqrs.component';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PqrsComponent } from './pqrs/pqrs.component';
     AccesoriosComponent,
     FavoritosComponent,
     PqrsComponent,
+    InfoComponent,
   ],
   imports: [
     FormsModule,
