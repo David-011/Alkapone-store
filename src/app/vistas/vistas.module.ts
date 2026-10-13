@@ -7,6 +7,7 @@ import { GorrasComponent } from './gorras/gorras.component';
 import { AccesoriosComponent } from './accesorios/accesorios.component';
 import { ComponentsModule } from '../components/components.module';
 import { FavoritosComponent } from './favoritos/favoritos.component';
+import { PqrsComponent } from './pqrs/pqrs.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FavoritosComponent } from './favoritos/favoritos.component';
     GorrasComponent,
     AccesoriosComponent,
     FavoritosComponent,
+    PqrsComponent,
   ],
   imports: [
     CommonModule,

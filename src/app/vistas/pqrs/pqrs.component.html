@@ -1,0 +1,18 @@
+<section class="pqrs-page">
+  <div class="pqrs-hero">
+    <h1>PQRS</h1>
+    <p>Peticiones, quejas, reclamos y sugerencias</p>
+  </div>
+  <div class="pqrs-box">
+    <label>Tipo de solicitud</label>
+    <select [(ngModel)]="tipo">
+      <option value="Peticion">Petición</option>
+      <option value="Queja">Queja</option>
+      <option value="Reclamo">Reclamo</option>
+      <option value="Sugerencia">Sugerencia</option>
+    </select>
+    <label>Cuéntanos qué pasó</label>
+    <textarea rows="6" [(ngModel)]="descripcion" placeholder="Escribe aquí tu mensaje..."></textarea>
+    <button (click)="enviar()" [disabled]="enviando">{{ enviando ? 'Enviando...' : 'Enviar' }}</button>
+  </div>
+</section>

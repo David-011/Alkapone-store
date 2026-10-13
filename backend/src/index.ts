@@ -3,6 +3,7 @@ import cors from 'cors';
 import productRouter from './routes/product.route';
 import clienteRouter from './routes/cliente.route';
 import pedidoRoute from './routes/pedido.route';
+import pqrsRoute from './routes/pqrs.route';
 
 const app = express();
 const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000;
@@ -18,6 +19,8 @@ app.use('/api/product', productRouter);
 app.use('/api/cliente', clienteRouter);
 
 app.use('/api/pedido', pedidoRoute);
+
+app.use('/api/pqrs', pqrsRoute);
 
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`Servidor Alkapone Store escuchando en el puerto ${PORT}`);
