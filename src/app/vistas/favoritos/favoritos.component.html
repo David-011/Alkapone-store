@@ -1,0 +1,27 @@
+<section class="fav-page">
+  <div class="fav-hero">
+    <h1>FAVORITOS</h1>
+    <p>Los productos que te gustan, en un solo lugar</p>
+  </div>
+  <div class="container-custom fav-content">
+    <div class="fav-empty" *ngIf="items.length === 0">
+      <h2>Aún no tienes favoritos</h2>
+      <p>Toca el corazón en cualquier producto para guardarlo aquí.</p>
+      <button class="fav-btn-main" (click)="explore()">Explorar productos</button>
+    </div>
+    <div class="fav-grid" *ngIf="items.length > 0">
+      <div class="fav-card" *ngFor="let item of items">
+        <div class="fav-image">
+          <img [src]="item.imagen" [alt]="item.nombre">
+          <button class="fav-remove" (click)="remove(item.idProducto)" aria-label="Quitar de favoritos">✕</button>
+        </div>
+        <div class="fav-info">
+          <span class="fav-category">{{ item.categoria }}</span>
+          <h3>{{ item.nombre }}</h3>
+          <span class="fav-price">{{ formatPrice(item.precio) }}</span>
+          <button class="fav-btn-main" (click)="addToCart(item)">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

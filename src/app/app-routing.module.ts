@@ -9,6 +9,8 @@ import { MiCuentaComponent } from './vistas/mi-cuenta/mi-cuenta.component';
 import { BusquedaComponent } from "./vistas/busqueda/busqueda.component";
 import { CarritoComponent } from './vistas/carrito/carrito.component';
 import { CheckoutComponent } from './vistas/checkout/checkout.component';
+import { FavoritosComponent } from './vistas/favoritos/favoritos.component';
+import { FavoritosComponent } from './vistas/favoritos/favoritos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: 'mi-cuenta', component: MiCuentaComponent },
   { path: 'busqueda', component: BusquedaComponent },
   { path: 'carrito', component: CarritoComponent },
-  { path: 'checkout', component: CheckoutComponent }
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'favoritos', component: FavoritosComponent },
+  { path: 'favoritos', component: FavoritosComponent }
 ];
 
 @NgModule({

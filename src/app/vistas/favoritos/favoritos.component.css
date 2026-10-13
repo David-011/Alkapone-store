@@ -1,0 +1,23 @@
+.fav-hero { background: #0d0d0d; color: #fff; text-align: center; padding: 3rem 1rem; }
+.fav-hero h1 { font-size: 2.4rem; font-weight: 900; letter-spacing: 6px; margin: 0 0 .5rem; }
+.fav-hero p { color: #8a8a8a; margin: 0; }
+.fav-content { padding: 3rem 0 5rem; }
+.fav-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+.fav-card { background: #fff; }
+.fav-image { position: relative; height: 320px; background: #f5f5f5; overflow: hidden; }
+.fav-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.fav-remove { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border-radius: 50%; border: none; background: #fff; cursor: pointer; font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,.12); transition: color .2s ease; }
+.fav-remove:hover { color: #ff4a17; }
+.fav-info { padding: 1.1rem 0; }
+.fav-category { font-size: 12px; color: #8a8a8a; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
+.fav-info h3 { font-size: 15px; font-weight: 600; margin: .4rem 0; color: #1a1a1a; }
+.fav-price { display: block; font-size: 16px; font-weight: 700; margin-bottom: 1rem; }
+.fav-btn-main { width: 100%; background: #0d0d0d; color: #fff; border: none; padding: 11px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; cursor: pointer; transition: background .3s ease; }
+.fav-btn-main:hover { background: #ff4a17; }
+.fav-empty { text-align: center; padding: 4rem 1rem; }
+.fav-empty h2 { margin-bottom: .5rem; }
+.fav-empty p { color: #8a8a8a; margin-bottom: 1.5rem; }
+.fav-empty .fav-btn-main { max-width: 260px; }
+@media (max-width: 1024px) { .fav-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) { .fav-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } .fav-image { height: 220px; } }
+@media (max-width: 480px) { .fav-grid { grid-template-columns: 1fr; } }
