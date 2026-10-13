@@ -514,3 +514,11 @@
 .cat-gorras { background-image: url('https://images.unsplash.com/photo-1521369909029-2afed882baee?w=800'); }
 .cat-accesorios { background-image: url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800'); }
 .category-content span { opacity: 1; transform: none; color: #ff4a17; font-weight: 700; }
+
+
+.product-image { position: relative; }
+.fav-btn { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 50%; border: none; background: #fff; color: #1a1a1a; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.12); transition: color .2s ease, transform .2s ease; }
+.fav-btn:hover { color: #ff4a17; transform: scale(1.08); }
+.fav-btn.active { color: #ff4a17; }
+.fav-btn.active svg, .product-fav.active svg { fill: currentColor; }
+.product-fav.active { opacity: 1; color: #ff4a17; }

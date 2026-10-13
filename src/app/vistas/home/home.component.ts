@@ -1,3 +1,4 @@
+import { FavoritesService } from '../../services/favorites.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product';
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
   featuredProducts: Product[] = [];
   isLoading = true;
 
-  constructor(private productService: ProductService) {}
+  constructor(public favs: FavoritesService, private productService: ProductService) {}
 
   ngOnInit(): void {
     this.loadProducts();

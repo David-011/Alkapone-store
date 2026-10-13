@@ -1,3 +1,4 @@
+import { FavoritesService } from '../../services/favorites.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
@@ -12,7 +13,7 @@ export class BusquedaComponent implements OnInit {
   resultados: any[] = [];
   termino: string = '';
 
-  constructor(
+  constructor(public favs: FavoritesService, 
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService

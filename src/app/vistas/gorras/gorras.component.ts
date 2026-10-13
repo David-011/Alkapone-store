@@ -1,3 +1,4 @@
+import { FavoritesService } from '../../services/favorites.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { CartService } from '../../services/cart.service';
@@ -15,7 +16,7 @@ export class GorrasComponent implements OnInit {
   sortOrder = 'default';
   isLoading = true;
 
-  constructor(
+  constructor(public favs: FavoritesService, 
     private productService: ProductService,
     private cartService: CartService
   ) {}
