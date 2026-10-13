@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'carrito', component: CarritoComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'favoritos', component: FavoritosComponent },
-  { path: 'favoritos', component: FavoritosComponent }
+
 ];
 
 @NgModule({

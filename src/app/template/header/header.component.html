@@ -11,8 +11,10 @@
       <button class="icon-btn" (click)="toggleSearch()" title="Buscar">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       </button>
-      <button class="icon-btn" title="Favoritos">
+      <button class="icon-btn cart-btn" title="Favoritos" (click)="goToFavs()">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.26 3-5.5A3.5 3.5 0 0 0 18.5 5c-1.43 0-2.7.84-3.5 2-.8-1.16-2.07-2-3.5-2A3.5 3.5 0 0 0 8 8.5c0 2.24 1.51 4.04 3 5.5l4 4 4-4z"/></svg>
+      
+        <span class="cart-badge" *ngIf="favs.getCount() > 0">{{ favs.getCount() }}</span>
       </button>
       <button class="icon-btn cart-btn" (click)="goToCart()" title="Carrito">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>

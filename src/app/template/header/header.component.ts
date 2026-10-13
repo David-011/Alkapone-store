@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
+import { FavoritesService } from '../../services/favorites.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
   isSearchOpen: boolean = false;
   searchTerm: string = '';
 
-  constructor(private router: Router, public cartService: CartService) {}
+  constructor(private router: Router, public cartService: CartService, public favs: FavoritesService) {}
 
   ngOnInit(): void {
     this.checkLogin();
@@ -57,6 +58,10 @@ export class HeaderComponent implements OnInit {
 
   goToAuth(): void {
     this.router.navigate(['/auth']);
+  }
+
+  goToFavs(): void {
+    this.router.navigate(['/favoritos']);
   }
 
   goToCart(): void {
