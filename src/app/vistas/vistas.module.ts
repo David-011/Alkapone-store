@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -19,6 +20,7 @@ import { PqrsComponent } from './pqrs/pqrs.component';
     PqrsComponent,
   ],
   imports: [
+    FormsModule,
     CommonModule,
     ComponentsModule   // <-- Aquí debe ir para que funcione app-menu en HomeComponent
   ],
