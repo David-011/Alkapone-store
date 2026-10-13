@@ -10,7 +10,6 @@ import { BusquedaComponent } from "./vistas/busqueda/busqueda.component";
 import { CarritoComponent } from './vistas/carrito/carrito.component';
 import { CheckoutComponent } from './vistas/checkout/checkout.component';
 import { FavoritosComponent } from './vistas/favoritos/favoritos.component';
-import { FavoritosComponent } from './vistas/favoritos/favoritos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
