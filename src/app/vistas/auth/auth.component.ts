@@ -43,30 +43,18 @@ export class AuthComponent {
       Swal.fire('Error', 'Completa todos los campos', 'error');
       return;
     }
-
     this.isLoading = true;
-    this.clienteService.getClientePorCorreo(this.loginData.correo).subscribe({
-      next: (response: any) => {
-        console.log('RESPUESTA LOGIN:', JSON.stringify(response));
-        const arr = Array.isArray(response) ? response : [response];
-        if (arr.length > 0) {
-          const cliente = arr[0];
-          if (cliente['Contrasena'] === this.loginData.contrasena) {
-            localStorage.setItem('cliente', JSON.stringify(cliente));
-            Swal.fire({
-              title: 'Bienvenido',
-              text: 'Hola ' + cliente['Nombre'] + '!',
-              icon: 'success',
-              timer: 2000,
-              showConfirmButton: false
-            });
-            this.router.navigate(['/home']);
-          } else {
-            Swal.fire('Error', 'Correo o contrasena incorrectos', 'error');
-          }
-        } else {
-          Swal.fire('Error', 'Correo o contrasena incorrectos', 'error');
-        }
+    this.clienteService.login(this.loginData.correo, this.loginData.contrasena).subscribe({
+      next: (cliente: any) => {
+        localStorage.setItem('cliente', JSON.stringify(cliente));
+        Swal.fire({
+          title: 'Bienvenido',
+          text: 'Hola ' + cliente['Nombre'] + '!',
+          icon: 'success',
+          timer: 2000,
+          showConfirmButton: false
+        });
+        this.router.navigate(['/home']);
         this.isLoading = false;
       },
       error: () => {
@@ -84,7 +72,7 @@ export class AuthComponent {
     }
 
     this.isLoading = true;
-    this.clienteService.createCliente(this.registerData).subscribe({
+    this.clienteService.registrar(this.registerData).subscribe({
       next: () => {
         Swal.fire({
           title: 'Registro exitoso',
@@ -96,8 +84,8 @@ export class AuthComponent {
         this.isLogin = true;
         this.isLoading = false;
       },
-      error: () => {
-        Swal.fire('Error', 'No se pudo registrar. Intenta de nuevo.', 'error');
+      error: (e: any) => {
+        Swal.fire('Error', (e && e.error && e.error.error) || 'No se pudo registrar. Intenta de nuevo.', 'error');
         this.isLoading = false;
       }
     });

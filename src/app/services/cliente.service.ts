@@ -38,4 +38,12 @@ export class ClienteService {
   deleteCliente(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
+
+  login(correo: string, contrasena: string): Observable<any> {
+    return this.http.post(environment.urlApiBase + 'auth/login', { Correo: correo, Contrasena: contrasena });
+  }
+
+  registrar(c: Cliente): Observable<any> {
+    return this.http.post(environment.urlApiBase + 'auth/register', { Nombre: c.nombre, Apellido: c.apellido, Correo: c.correo, Contrasena: c.contrasena, Direccion: c.direccion, Telefono: c.telefono });
+  }
 }
