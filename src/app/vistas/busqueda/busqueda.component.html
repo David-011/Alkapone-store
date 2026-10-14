@@ -6,11 +6,11 @@
     <div class="products-grid" *ngIf="resultados.length > 0">
       <div class="product-card" *ngFor="let product of resultados">
         <div class="product-image">
-          <img [src]="product.imagen || product.Imagen" [alt]="product.nombre || product.Nombre" class="product-img">
+          <img [src]="product.imagen || product.Imagen" [alt]="product.nombre || product.Nombre" class="product-img" [routerLink]="['/producto', product.idProducto]" style="cursor:pointer">
         </div>
         <div class="product-info">
           <span class="product-category">{{ product.categoria || product.Categoria }}</span>
-          <h3 class="product-name">{{ product.nombre || product.Nombre }}</h3>
+          <h3 class="product-name" [routerLink]="['/producto', product.idProducto]" style="cursor:pointer">{{ product.nombre || product.Nombre }}</h3>
           <p class="product-price">{{ formatPrice(product.precio || product.Precio) }}</p>
           <button class="btn-add-cart" (click)="addToCart(product)">Agregar al carrito</button>
         </div>
