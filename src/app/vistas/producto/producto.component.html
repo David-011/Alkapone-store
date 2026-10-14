@@ -1,0 +1,30 @@
+<section class="det-page">
+  <div class="det-msg" *ngIf="cargando">Cargando producto...</div>
+  <div class="det-msg" *ngIf="!cargando && !producto">
+    <h2>Producto no encontrado</h2>
+    <button class="det-btn" (click)="volver()">Volver al inicio</button>
+  </div>
+  <div class="det-wrap" *ngIf="producto">
+    <div class="det-img"><img [src]="producto.imagen" [alt]="producto.nombre"></div>
+    <div class="det-info">
+      <span class="det-cat">{{ producto.categoria }}</span>
+      <h1>{{ producto.nombre }}</h1>
+      <p class="det-price">{{ formatPrice(producto.precio) }}</p>
+      <p class="det-desc">{{ producto.descripcion }}</p>
+      <p class="det-stock" [class.low]="producto.stock < 5">{{ producto.stock > 0 ? (producto.stock < 5 ? 'Últimas ' + producto.stock + ' unidades' : 'Disponible') : 'Agotado' }}</p>
+      <button class="det-btn" [disabled]="producto.stock <= 0" (click)="agregar()">Agregar al carrito</button>
+      <button class="det-btn outline" (click)="favs.toggle(producto)">{{ favs.isFavorite(producto.idProducto) ? '♥ En favoritos' : '♡ Agregar a favoritos' }}</button>
+    </div>
+  </div>
+  <div class="det-rel" *ngIf="relacionados.length > 0">
+    <h3>También te puede gustar</h3>
+    <div class="det-grid">
+      <div class="det-card" *ngFor="let r of relacionados" (click)="ver(r.idProducto)">
+        <img [src]="r.imagen" [alt]="r.nombre">
+        <span class="det-cat">{{ r.categoria }}</span>
+        <p class="det-rname">{{ r.nombre }}</p>
+        <p class="det-rprice">{{ formatPrice(r.precio) }}</p>
+      </div>
+    </div>
+  </div>
+</section>

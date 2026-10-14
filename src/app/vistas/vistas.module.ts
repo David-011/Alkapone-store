@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,6 +11,8 @@ import { ComponentsModule } from '../components/components.module';
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { PqrsComponent } from './pqrs/pqrs.component';
 import { InfoComponent } from './info/info.component';
+import { ProductoComponent } from './producto/producto.component';
+import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +23,11 @@ import { InfoComponent } from './info/info.component';
     FavoritosComponent,
     PqrsComponent,
     InfoComponent,
+    ProductoComponent,
+    NoEncontradoComponent,
   ],
   imports: [
+    RouterModule,
     FormsModule,
     CommonModule,
     ComponentsModule   // <-- Aquí debe ir para que funcione app-menu en HomeComponent

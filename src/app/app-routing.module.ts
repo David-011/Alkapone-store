@@ -12,6 +12,8 @@ import { CheckoutComponent } from './vistas/checkout/checkout.component';
 import { FavoritosComponent } from './vistas/favoritos/favoritos.component';
 import { PqrsComponent } from './vistas/pqrs/pqrs.component';
 import { InfoComponent } from './vistas/info/info.component';
+import { ProductoComponent } from './vistas/producto/producto.component';
+import { NoEncontradoComponent } from './vistas/no-encontrado/no-encontrado.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'favoritos', component: FavoritosComponent },
   { path: 'pqrs', component: PqrsComponent },
   { path: 'info/:tema', component: InfoComponent },
+  { path: 'producto/:id', component: ProductoComponent },
+  { path: '**', component: NoEncontradoComponent },
 
 ];
 

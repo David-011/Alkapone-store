@@ -1,0 +1,24 @@
+.det-page { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+.det-msg { text-align: center; padding: 4rem 1rem; color: #8a8a8a; }
+.det-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.det-img { background: #f5f5f5; }
+.det-img img { width: 100%; display: block; object-fit: cover; max-height: 640px; }
+.det-cat { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #ff4a17; font-weight: 600; }
+.det-info h1 { font-size: 2rem; font-weight: 800; margin: .4rem 0 1rem; }
+.det-price { font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; }
+.det-desc { color: #555; line-height: 1.7; margin-bottom: 1rem; }
+.det-stock { font-size: 13px; font-weight: 600; color: #2e7d32; margin-bottom: 1.5rem; }
+.det-stock.low { color: #ff4a17; }
+.det-btn { display: block; width: 100%; background: #0d0d0d; color: #fff; border: 2px solid #0d0d0d; padding: 14px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; margin-bottom: .8rem; }
+.det-btn:hover { background: #ff4a17; border-color: #ff4a17; }
+.det-btn.outline { background: #fff; color: #0d0d0d; }
+.det-btn.outline:hover { color: #fff; }
+.det-btn:disabled { opacity: .5; cursor: default; }
+.det-rel { margin-top: 4rem; }
+.det-rel h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 2px; }
+.det-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.det-card { cursor: pointer; }
+.det-card img { width: 100%; height: 240px; object-fit: cover; display: block; margin-bottom: .6rem; }
+.det-rname { font-weight: 700; margin: .2rem 0; font-size: 14px; }
+.det-rprice { font-weight: 800; font-size: 14px; }
+@media (max-width: 768px) { .det-wrap { grid-template-columns: 1fr; gap: 1.5rem; } .det-grid { grid-template-columns: repeat(2, 1fr); } }

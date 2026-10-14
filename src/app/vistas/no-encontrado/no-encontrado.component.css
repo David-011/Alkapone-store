@@ -1,0 +1,6 @@
+.nf-page { text-align: center; padding: 6rem 1.5rem; }
+.nf-page h1 { font-size: 6rem; font-weight: 900; letter-spacing: 8px; color: #ff4a17; margin: 0; }
+.nf-page h2 { margin: .5rem 0; }
+.nf-page p { color: #8a8a8a; margin-bottom: 2rem; }
+.nf-page button { background: #0d0d0d; color: #fff; border: none; padding: 13px 32px; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; }
+.nf-page button:hover { background: #ff4a17; }
