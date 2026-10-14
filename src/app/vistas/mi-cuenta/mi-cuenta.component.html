@@ -5,15 +5,16 @@
       <h3>{{ cliente.Nombre }} {{ cliente.Apellido }}</h3>
       <p>{{ cliente.Correo }}</p>
       <hr>
-      <a class="sidebar-link active">Mi Perfil</a>
+      <a class="sidebar-link" [class.active]="vista==='perfil'" (click)="vista='perfil'">Mi Perfil</a>
+      <a class="sidebar-link" [class.active]="vista==='pedidos'" (click)="verPedidos()">Mis Pedidos</a>
       <a class="sidebar-link logout-link" (click)="cerrarSesion()">Cerrar Sesion</a>
     </div>
     <div class="main-content">
-      <div class="profile-header">
+      <div class="profile-header" *ngIf="vista==='perfil'">
         <h2>Mi Perfil</h2>
         <button class="btn-edit" (click)="toggleEdit()">{{ editMode ? 'Cancelar' : 'Editar' }}</button>
       </div>
-      <div class="profile-info" *ngIf="!editMode">
+      <div class="profile-info" *ngIf="vista==='perfil' && !editMode">
         <div class="info-row">
           <span class="label">NOMBRE</span>
           <span class="value">{{ cliente.Nombre }}</span>
@@ -35,7 +36,7 @@
           <span class="value">{{ cliente.Direccion }}</span>
         </div>
       </div>
-      <div class="profile-edit" *ngIf="editMode">
+      <div class="profile-edit" *ngIf="vista==='perfil' && editMode">
         <div class="form-group">
           <label>NOMBRE</label>
           <input type="text" [(ngModel)]="editData.Nombre">
@@ -57,6 +58,21 @@
           <input type="text" [(ngModel)]="editData.Direccion">
         </div>
         <button class="btn-save" (click)="guardarCambios()">Guardar Cambios</button>
+      </div>
+      <div class="pedidos" *ngIf="vista==='pedidos'">
+        <div class="profile-header"><h2>Mis Pedidos</h2></div>
+        <p class="ped-vacio" *ngIf="cargando">Cargando...</p>
+        <p class="ped-vacio" *ngIf="!cargando && pedidos.length === 0">Aún no tienes pedidos.</p>
+        <div class="ped-card" *ngFor="let p of pedidos">
+          <div class="ped-head"><strong>Pedido #{{ p.IdPedido }}</strong><span class="ped-estado">{{ p.EstadoPedido }}</span></div>
+          <div class="ped-meta">{{ p.FechaPedido | date:'dd/MM/yyyy HH:mm' }} · {{ p.MetodoPago }}</div>
+          <div class="ped-item" *ngFor="let i of p.items">
+            <img *ngIf="i.imagen" [src]="i.imagen" [alt]="i.Nombre">
+            <span class="ped-nombre">{{ i.Cantidad }} x {{ i.Nombre }}</span>
+            <span>{{ formatPrice(i.PrecioUnitario * i.Cantidad) }}</span>
+          </div>
+          <div class="ped-total">Total {{ formatPrice(p.Total) }}</div>
+        </div>
       </div>
     </div>
   </div>

@@ -36,6 +36,8 @@ export const CrearPedido = async (p: any) => {
 
 export const PedidosPorCliente = async (id: number) => {
   const pool = await getConnection();
-  const r = await pool.request().input("id", id).query("SELECT * FROM Pedido WHERE IdCliente=@id ORDER BY FechaPedido DESC");
-  return r.recordset;
+  await pool.request().query("IF OBJECT_ID('DetallePedido','U') IS NULL CREATE TABLE DetallePedido (IdDetalle INT IDENTITY(1,1) PRIMARY KEY, IdPedido INT FOREIGN KEY REFERENCES Pedido(IdPedido), IdProducto INT, Nombre VARCHAR(100), Cantidad INT, PrecioUnitario DECIMAL(10,2))");
+  const p = await pool.request().input("id", id).query("SELECT p.IdPedido, p.FechaPedido, p.EstadoPedido, p.Total, pg.MetodoPago FROM Pedido p LEFT JOIN Pago pg ON pg.IdPedido = p.IdPedido WHERE p.IdCliente=@id ORDER BY p.FechaPedido DESC");
+  const d = await pool.request().input("id", id).query("SELECT d.IdPedido, d.IdProducto, d.Nombre, d.Cantidad, d.PrecioUnitario, pr.imagen FROM DetallePedido d LEFT JOIN producto pr ON pr.idProducto = d.IdProducto WHERE d.IdPedido IN (SELECT IdPedido FROM Pedido WHERE IdCliente=@id)");
+  return p.recordset.map((x: any) => ({ ...x, items: d.recordset.filter((i: any) => i.IdPedido === x.IdPedido) }));
 };

@@ -137,3 +137,14 @@
 }
 .logout-link { color: #dc3545; font-weight: 600; }
 .logout-link:hover { color: #a71d2a; background: #fff5f5; }
+
+.sidebar-link { cursor: pointer; }
+.ped-card { border: 1px solid #e5e5e5; padding: 1.2rem; margin-bottom: 1rem; }
+.ped-head { display: flex; justify-content: space-between; align-items: center; }
+.ped-estado { background: #0d0d0d; color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; text-transform: uppercase; letter-spacing: 1px; }
+.ped-meta { font-size: 13px; color: #8a8a8a; margin: .3rem 0 .8rem; }
+.ped-item { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-top: 1px solid #f0f0f0; font-size: 14px; }
+.ped-item img { width: 48px; height: 48px; object-fit: cover; }
+.ped-nombre { flex: 1; }
+.ped-total { text-align: right; font-weight: 800; margin-top: .6rem; }
+.ped-vacio { color: #8a8a8a; padding: 2rem 0; }
