@@ -1,3 +1,5 @@
+import { NoEncontradoComponent } from './vistas/no-encontrado/no-encontrado.component';
+import { ProductoComponent } from './vistas/producto/producto.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,6 +21,8 @@ import { CheckoutComponent } from './vistas/checkout/checkout.component';
 
 @NgModule({
   declarations: [
+    NoEncontradoComponent,
+    ProductoComponent,
     AppComponent,
     HeaderComponent,
     FooterComponent,

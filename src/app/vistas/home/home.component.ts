@@ -1,3 +1,4 @@
+import { CartService } from '../../services/cart.service';
 import { FavoritesService } from '../../services/favorites.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   featuredProducts: Product[] = [];
   isLoading = true;
 
-  constructor(public favs: FavoritesService, private productService: ProductService) {}
+  constructor(private cartService: CartService, public favs: FavoritesService, private productService: ProductService) {}
 
   ngOnInit(): void {
     this.loadProducts();
@@ -31,5 +32,9 @@ export class HomeComponent implements OnInit {
         this.isLoading = false;
       }
     });
+  }
+
+  addToCart(product: any): void {
+    this.cartService.addToCart(product);
   }
 }

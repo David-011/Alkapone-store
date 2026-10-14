@@ -522,3 +522,5 @@
 .fav-btn.active { color: #ff4a17; }
 .fav-btn.active svg, .product-fav.active svg { fill: currentColor; }
 .product-fav.active { opacity: 1; color: #ff4a17; }
+
+@media (hover: none) { .btn-add-cart, .product-fav { opacity: 1; transform: none; } }

@@ -11,8 +11,6 @@ import { ComponentsModule } from '../components/components.module';
 import { FavoritosComponent } from './favoritos/favoritos.component';
 import { PqrsComponent } from './pqrs/pqrs.component';
 import { InfoComponent } from './info/info.component';
-import { ProductoComponent } from './producto/producto.component';
-import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +21,6 @@ import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
     FavoritosComponent,
     PqrsComponent,
     InfoComponent,
-    ProductoComponent,
-    NoEncontradoComponent,
   ],
   imports: [
     RouterModule,

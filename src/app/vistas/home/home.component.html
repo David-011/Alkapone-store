@@ -65,7 +65,7 @@
           <span class="product-category">{{ product.categoria }}</span>
           <h4 class="product-name" [routerLink]="['/producto', product.idProducto]" style="cursor:pointer">{{ product.nombre }}</h4>
           <p class="product-price">{{ product.precio | currency:'COP':'symbol-narrow':'1.0-0' }}</p>
-          <button class="btn-add-cart">Agregar al carrito</button>
+          <button class="btn-add-cart" (click)="addToCart(product)">Agregar al carrito</button>
         </div>
       </div>
     </div>
