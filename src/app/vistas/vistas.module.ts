@@ -8,9 +8,6 @@ import { RopaComponent } from './ropa/ropa.component';
 import { GorrasComponent } from './gorras/gorras.component';
 import { AccesoriosComponent } from './accesorios/accesorios.component';
 import { ComponentsModule } from '../components/components.module';
-import { FavoritosComponent } from './favoritos/favoritos.component';
-import { PqrsComponent } from './pqrs/pqrs.component';
-import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +15,6 @@ import { InfoComponent } from './info/info.component';
     RopaComponent,
     GorrasComponent,
     AccesoriosComponent,
-    FavoritosComponent,
-    PqrsComponent,
-    InfoComponent,
   ],
   imports: [
     RouterModule,

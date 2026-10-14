@@ -1,3 +1,6 @@
+import { PqrsComponent } from './vistas/pqrs/pqrs.component';
+import { InfoComponent } from './vistas/info/info.component';
+import { FavoritosComponent } from './vistas/favoritos/favoritos.component';
 import { NoEncontradoComponent } from './vistas/no-encontrado/no-encontrado.component';
 import { ProductoComponent } from './vistas/producto/producto.component';
 import { NgModule } from '@angular/core';
@@ -21,6 +24,9 @@ import { CheckoutComponent } from './vistas/checkout/checkout.component';
 
 @NgModule({
   declarations: [
+    PqrsComponent,
+    InfoComponent,
+    FavoritosComponent,
     NoEncontradoComponent,
     ProductoComponent,
     AppComponent,
