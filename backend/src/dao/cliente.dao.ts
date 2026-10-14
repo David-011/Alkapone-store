@@ -57,3 +57,8 @@ export const EliminarCliente = async (id: number) => {
     const result = await pool.request().input("id", id).query("DELETE FROM Cliente WHERE IdCliente=@id");
     return result.rowsAffected;
 }
+
+export const Listar = ListarClientes;
+export const Crear = CrearCliente;
+export const Actualizar = ActualizarCliente;
+export const Eliminar = EliminarCliente;
